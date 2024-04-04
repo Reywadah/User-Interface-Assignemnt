@@ -1,9 +1,12 @@
 let firstNumber='';
 let secondNumber='';
+let thirdNumber='';
 let operator;
 
 const dot = document.querySelector('#dot');
 dot.addEventListener('click', () => {dotNotation();})
+dot.addEventListener('keydown', (e) => {
+    let doot = e.key; if(doot == '.'){dotNotation()};})
 
 const clear= document.querySelector('#clear')
 clear.addEventListener('click', () => {clearDisplay(); console.log(firstNumber);displayNumber();})
@@ -52,11 +55,14 @@ add9.addEventListener('click', () => {getFirstNumber("9");
 console.log(firstNumber);displayNumber();;})
 
 let DIsplay = document.querySelector('#display')
+const display2 = document.createElement('p')
+DIsplay.appendChild(display2);
 const display = document.createElement('p')
 DIsplay.appendChild(display);
 
+
 let finalResult = document.querySelector('#result');
-finalResult.addEventListener('click', () => {console.log(firstNumber);console.log(operator);console.log(secondNumber);firstNumber = operate(firstNumber,secondNumber,operator);displayNumber();})
+finalResult.addEventListener('click', () => {console.log(firstNumber);console.log(operator);console.log(secondNumber);operate(firstNumber,secondNumber,operator);})
 
 let addition = document.querySelector('#add');
 addition.addEventListener('click', () => {operator = '+';
@@ -67,11 +73,11 @@ subtraction.addEventListener('click', () => {operator = '-';
 console.log(operator);joinNumbers();})
 
 let multiplication = document.querySelector('#mult');
-multiplication.addEventListener('click', () => {operator = '*';
+multiplication.addEventListener('click', () => {operator = 'x';
 console.log(operator);joinNumbers();})
 
 let division = document.querySelector('#div');
-division.addEventListener('click', () => {operator = '/';
+division.addEventListener('click', () => {operator = '÷';
 console.log(operator);joinNumbers();})
 
 display.textContent = "0";
@@ -82,7 +88,8 @@ function sum(a,b){
 }
 
 function sub(a,b){
-    let fix = b-a;
+    if(a < 0){a = -a;}
+    let fix= b - a;
     return fix.toFixed(2);
 }
 
@@ -97,18 +104,28 @@ function div(a,b){
 }
 
 function operate(a,b,$){
+    display2.textContent='';
     switch ($) {
         case '+':
-            return sum(a,b);
+        display2.textContent += `${secondNumber} ${$} ${firstNumber}`;  
+        firstNumber = sum(a,b);
+        display.textContent= firstNumber;
+        
             break;
         case '-':
-            return sub(a,b);
+        display2.textContent += `${secondNumber} ${$} ${firstNumber}`;  
+        firstNumber = sub(a,b);
+        display.textContent= firstNumber;
             break;
-        case '*':
-            return mult(a,b);
+        case 'x':
+        display2.textContent += `${secondNumber} ${$} ${firstNumber}`;  
+        firstNumber = mult(a,b);
+        display.textContent= firstNumber;
             break;
-        case '/':
-            return div(a,b);
+        case '÷':
+        display2.textContent += `${secondNumber} ${$} ${firstNumber}`;  
+        firstNumber = div(a,b);
+        display.textContent= firstNumber;
             break;
     
         default:
@@ -118,6 +135,10 @@ function operate(a,b,$){
 function joinNumbers(){
     secondNumber = firstNumber;
     firstNumber = "";
+    display2.textContent = `${secondNumber} ${operator}`;
+    DIsplay.appendChild(display2);
+    display.textContent='';
+    DIsplay.append(display);
 }
 
 function displayNumber(){
@@ -132,6 +153,9 @@ function getFirstNumber(x){
 function clearDisplay(){
     firstNumber="";
     secondNumber='';
+    operator='';
+    display2.textContent = ``;
+    DIsplay.appendChild(display2);
 }
 
 function delLastNumber(){

@@ -1,22 +1,23 @@
-
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(0.25turn, #01313e, #3d1a3d);
-
+    background-color:#ececec;
 }
+
 #display{
-    background-color: rgba(0, 0, 0, 0.798);
+    background-color: rgba(0, 0, 0, 0.887);
     border: solid rgb(61, 0, 49) 1px;
     height: 100px;
+    margin-bottom: 100px;
 }
 p{
     margin: 0px;
-    padding: 10px;
+    padding-left: 20px;
     color: white;
-    font-weight: 900;
-    font-size: 40px;
+    font-weight: 300;
+    font-size: 25px;
 }
 button{
     width: 100%;
@@ -29,37 +30,42 @@ button{
     text-align: center;
     font-size: 20px;
     transition: all 0.2s;
+    box-shadow: 1px 1px rgb(0, 0, 0);
 }
 button:hover{
     cursor: pointer;
 }
 table{
-    background: linear-gradient(0.5turn, #9343ee, #009474, #00403e);
-    margin-top: 50px;
-    border: solid #01313e 1px;
-    border-radius: 10px;
-    width: 600px;
-    height: 400px;
+    background-color: #9fd3c7;
+    margin-top: 150px;
+    padding: 10px;
+    /* border: solid #01313e 1px; */
+    border-radius: 15px;
+    width: 400px;
+    height: 500px;
+    /* box-shadow: 5px 5px rgb(0, 0, 0); */
 }
 td{
     border: solid #4fcca61c 3px;
     border-radius: 10px;
 }
 .operators{
-    background: linear-gradient(0.25turn, #01313e, #ebf8e1, #583cf6);
+    background-color: #a04625;
+    color: white;
+    font-size: 25px;
 }
 .operators:hover{
-    background: linear-gradient(0.25turn, #20ff02, #ebf8e1, #aecc03);
+    background-color: #80381e;
+    color: whitesmoke;
 }
 
 .number{
-    background-color: rgba(128, 128, 128, 0.411);
-    color: black;
+    background-color: #385170;
+    color: white;
 }
 .number:hover{
-    background: linear-gradient(0.25turn, #01313e, #ebf8e134);
+    background: #142d4c;
     
-    color: rgb(91, 182, 198);
 }
 
 #clear{
@@ -75,12 +81,22 @@ td{
     background-color: rgb(184, 11, 11);
     color: white;
 }
-#result, #dot{
-    background-color: grey;
+
+#result:hover{
+    background-color: rgb(185, 185, 185);
     color: black;
 }
-#result:hover , #dot:hover, .number:hover{
-    background: linear-gradient(0.25turn, #01313e, #ebf8e134);
-    
-    color: rgb(91, 182, 198);
+footer{text-align: center;
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 50px;
+position: fixed;
+bottom: 0;
+width: 100%;
+padding-bottom: 5px;
+}
+img{
+    padding-left: 10px;
 }
